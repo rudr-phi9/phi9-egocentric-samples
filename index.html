@@ -67,6 +67,16 @@ h1 {
 }
 .specs li { display: flex; flex-direction: column; gap: 2px; }
 .specs span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.note {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline;
+  margin: 24px 0 0; padding: 12px 14px; max-width: 760px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+}
+.note strong {
+  font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent); white-space: nowrap;
+}
+.note span { flex: 1 1 320px; min-width: 0; color: var(--muted); }
 
 main { padding-block: 32px 56px; }
 .grid {
@@ -118,6 +128,8 @@ a:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline
       <li><span>Audio</span>None</li>
       <li><span>Clip length</span>60 s each</li>
     </ul>
+    <p class="note"><strong>Head-mounted rig only</strong><span>These samples come from the Phi9 head-mounted rig.
+      The station-mounted setup uses a different camera and lens, so its footage will look different.</span></p>
   </div>
 </header>
 
