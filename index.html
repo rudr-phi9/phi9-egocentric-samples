@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Phi9.space Egocentric Samples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one header band with the dataset's capture specs, then a two-up grid of clip cards (one column on phones). */
+:root {
+  --bg: #eef0ee;
+  --surface: #ffffff;
+  --fg: #1c2321;
+  --muted: #5c6763;
+  --line: #d3d9d6;
+  --accent: #1f7a62;      /* workbench green, as seen in the footage */
+  --accent-ink: #ffffff;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121615; --surface: #1b211f; --fg: #e6ebe8; --muted: #9aa6a1;
+    --line: #2c3532; --accent: #4fbf9c; --accent-ink: #0d1412; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121615; --surface: #1b211f; --fg: #e6ebe8; --muted: #9aa6a1;
+  --line: #2c3532; --accent: #4fbf9c; --accent-ink: #0d1412; color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+header { padding-block: 48px 28px; border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display); font-stretch: 112%; font-weight: 800;
+  font-size: clamp(32px, 5.4vw, 60px); line-height: 1.02; letter-spacing: -.02em;
+  margin: 0; text-wrap: balance;
+}
+.lede { max-width: 62ch; color: var(--muted); margin: 16px 0 0; font-size: 16px; }
+.lede a { color: var(--accent); }
+
+.specs {
+  display: flex; flex-wrap: wrap; gap: 8px 28px;
+  margin: 28px 0 0; padding: 0; list-style: none;
+  font-family: var(--mono); font-size: 13px;
+}
+.specs li { display: flex; flex-direction: column; gap: 2px; }
+.specs span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+
+main { padding-block: 32px 56px; }
+.grid {
+  display: grid; gap: 28px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+}
+.clip { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.frame {
+  position: relative; aspect-ratio: 16 / 9; max-width: 100%;
+  background: #000; border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--line);
+}
+.frame video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.tag {
+  position: absolute; top: 10px; left: 10px; pointer-events: none;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 3px 8px; border-radius: 3px; letter-spacing: .04em;
+}
+.clip.playing .tag { opacity: 0; transition: opacity .3s; }
+.meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.meta h2 { font-family: var(--display); font-stretch: 100%; font-weight: 700; font-size: 19px; margin: 0; }
+.meta code { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.clip p { margin: -6px 0 0; color: var(--muted); }
+
+footer {
+  border-top: 1px solid var(--line); padding-block: 24px 40px;
+  color: var(--muted); font-size: 13px;
+}
+footer p { margin: 0 0 6px; max-width: 80ch; }
+footer a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Phi9.space · Egocentric samples</p>
+    <h1>Six factories, seen through the Phi9 rig</h1>
+    <p class="lede">One-minute clips from six different factories, captured with the Phi9 head-mounted data rig,
+      the capture hardware Phi9 supplied to Build AI. Every clip was filmed from a real worker's point of view during a normal shift.</p>
+    <ul class="specs">
+      <li><span>Resolution</span>1920 × 1080</li>
+      <li><span>Frame rate</span>30 fps</li>
+      <li><span>Field of view</span>128° H · 67° V fisheye</li>
+      <li><span>Capture rig</span>Phi9 head-mounted, monocular</li>
+      <li><span>Audio</span>None</li>
+      <li><span>Clip length</span>60 s each</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="wrap grid" id="grid"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Each clip is the first 60 seconds of the original video, re-encoded from H.265 to H.264 so it plays in every browser.</p>
+  </div>
+</footer>
+
+<script>
+const clips = [
+  { f: "001", file: "factory001_worker001_00000", title: "Press operation", note: "Feeding parts into a stamping press and clearing the die." },
+  { f: "015", file: "factory015_worker001_00006", title: "Machine-side assembly", note: "Working at a rotary winding station surrounded by trays of components." },
+  { f: "030", file: "factory030_worker001_00001", title: "Line packing", note: "Placing finished white parts into trays at a conveyor line." },
+  { f: "045", file: "factory045_worker001_00000", title: "Small-part assembly", note: "Handling and joining small wired plastic parts at a bench." },
+  { f: "060", file: "factory060_worker001_00000", title: "Housing assembly", note: "Fitting circuit boards into round black housings." },
+  { f: "085", file: "factory085_worker001_00001", title: "Parts sorting", note: "Sorting small metal parts from bins with gloved hands." },
+];
+const grid = document.getElementById("grid");
+for (const c of clips) {
+  const el = document.createElement("article");
+  el.className = "clip";
+  el.innerHTML = `
+    <div class="frame">
+      <video id="v${c.f}" controls playsinline preload="metadata" poster="posters/factory_${c.f}.jpg"
+        src="videos/factory_${c.f}.mp4" aria-label="Factory ${c.f}: ${c.title}"></video>
+      <span class="tag">FACTORY ${c.f}</span>
+    </div>
+    <div class="meta"><h2>${c.title}</h2><code>${c.file}</code></div>
+    <p>${c.note}</p>`;
+  const v = el.querySelector("video");
+  // Only one clip plays at a time.
+  v.addEventListener("play", () => {
+    document.querySelectorAll("video").forEach(o => { if (o !== v) o.pause(); });
+    el.classList.add("playing");
+  });
+  v.addEventListener("pause", () => el.classList.remove("playing"));
+  grid.appendChild(el);
+}
+</script>
+</body>
+</html>
